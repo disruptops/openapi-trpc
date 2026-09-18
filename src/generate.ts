@@ -2,12 +2,12 @@ import { DummyProcedure, DummyRouter } from './dummyRouter'
 import { z, ZodObject, ZodType, ZodArray } from 'zod'
 import { OpenAPIV3 } from 'openapi-types'
 import { OperationMeta, allowedOperationKeys } from './meta'
-import { RootConfig, Router, RouterDef } from '@trpc/server'
+import { AnyRouter } from '@trpc/server'
 
 /**
  * @public
  */
-export function generateOpenAPIDocumentFromTRPCRouter<R extends Router<any>>(
+export function generateOpenAPIDocumentFromTRPCRouter<R extends AnyRouter>(
   inRouter: R,
   options: GenerateOpenAPIDocumentOptions<MetaOf<R>> = {},
 ) {
@@ -73,7 +73,7 @@ export function generateOpenAPIDocumentFromTRPCRouter<R extends Router<any>>(
         operationInfo[key] = value as any
       }
     }
-    if (procDef.query) {
+    if (procDef.type === 'query') {
       paths[key] = {
         get: processOperation(
           {
@@ -131,12 +131,10 @@ function getZodTypeName(input: unknown) {
 }
 
 function asZodObject(input: unknown) {
-  if (
-    getZodTypeName(input) !== 'object' &&
-    getZodTypeName(input) !== 'void' &&
-    getZodTypeName(input) !== 'optional'
-  ) {
-    throw new Error('Expected a ZodObject, received: ' + String(input))
+  const validTypes = ['object', 'void', 'optional', 'union']
+  const typeName = getZodTypeName(input)
+  if (!typeName || !validTypes.includes(typeName)) {
+    throw new Error(`Expected a ZodObject, received a type: ${typeName}. input: ${JSON.stringify(input)}`)
   }
   return input as ZodObject
 }
@@ -164,8 +162,4 @@ function toJsonSchema(input: ZodType) {
   return output
 }
 
-type MetaOf<R extends Router<any>> = R extends Router<RouterDef<infer D, any>>
-  ? D extends RootConfig<infer C>
-    ? C['meta']
-    : never
-  : never
+type MetaOf<R extends AnyRouter> = R['_def']['_config']['$types']['meta']

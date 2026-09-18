@@ -1,23 +1,23 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`lets you post-process each operation, giving typed access to the meta 1`] = `
-Object {
-  "info": Object {
+{
+  "info": {
     "title": "tRPC HTTP-RPC",
     "version": "",
   },
   "openapi": "3.0.0",
-  "paths": Object {
-    "/trpc/private": Object {
-      "get": Object {
+  "paths": {
+    "/trpc/private": {
+      "get": {
         "operationId": "private",
-        "parameters": Array [
-          Object {
-            "content": Object {
-              "application/json": Object {
-                "schema": Object {
+        "parameters": [
+          {
+            "content": {
+              "application/json": {
+                "schema": {
                   "additionalProperties": false,
-                  "properties": Object {},
+                  "properties": {},
                   "type": "object",
                 },
               },
@@ -26,29 +26,29 @@ Object {
             "name": "input",
           },
         ],
-        "responses": Object {
-          "200": Object {
+        "responses": {
+          "200": {
             "description": "",
           },
         },
-        "security": Array [
-          Object {
-            "bearerAuth": Array [],
+        "security": [
+          {
+            "bearerAuth": [],
           },
         ],
-        "tags": Array [],
+        "tags": [],
       },
     },
-    "/trpc/public": Object {
-      "get": Object {
+    "/trpc/public": {
+      "get": {
         "operationId": "public",
-        "parameters": Array [
-          Object {
-            "content": Object {
-              "application/json": Object {
-                "schema": Object {
+        "parameters": [
+          {
+            "content": {
+              "application/json": {
+                "schema": {
                   "additionalProperties": false,
-                  "properties": Object {},
+                  "properties": {},
                   "type": "object",
                 },
               },
@@ -57,12 +57,12 @@ Object {
             "name": "input",
           },
         ],
-        "responses": Object {
-          "200": Object {
+        "responses": {
+          "200": {
             "description": "",
           },
         },
-        "tags": Array [],
+        "tags": [],
       },
     },
   },
@@ -70,29 +70,29 @@ Object {
 `;
 
 exports[`works 1`] = `
-Object {
-  "info": Object {
+{
+  "info": {
     "title": "tRPC HTTP-RPC",
     "version": "",
   },
   "openapi": "3.0.0",
-  "paths": Object {
-    "/trpc/dummy.hello.world": Object {
-      "get": Object {
+  "paths": {
+    "/trpc/dummy.hello.world": {
+      "get": {
         "description": "ok",
         "operationId": "dummy.hello.world",
-        "parameters": Array [
-          Object {
-            "content": Object {
-              "application/json": Object {
-                "schema": Object {
+        "parameters": [
+          {
+            "content": {
+              "application/json": {
+                "schema": {
                   "additionalProperties": false,
-                  "properties": Object {
-                    "name": Object {
+                  "properties": {
+                    "name": {
                       "type": "string",
                     },
                   },
-                  "required": Array [
+                  "required": [
                     "name",
                   ],
                   "type": "object",
@@ -103,27 +103,27 @@ Object {
             "name": "input",
           },
         ],
-        "responses": Object {
-          "200": Object {
-            "content": Object {
-              "application/json": Object {
-                "schema": Object {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
                   "additionalProperties": false,
-                  "properties": Object {
-                    "result": Object {
+                  "properties": {
+                    "result": {
                       "additionalProperties": false,
-                      "properties": Object {
-                        "data": Object {
+                      "properties": {
+                        "data": {
                           "type": "string",
                         },
                       },
-                      "required": Array [
+                      "required": [
                         "data",
                       ],
                       "type": "object",
                     },
                   },
-                  "required": Array [
+                  "required": [
                     "result",
                   ],
                   "type": "object",
@@ -133,22 +133,22 @@ Object {
             "description": "",
           },
         },
-        "tags": Array [
+        "tags": [
           "dummy",
         ],
       },
     },
-    "/trpc/example.createGreeting": Object {
-      "post": Object {
+    "/trpc/example.createGreeting": {
+      "post": {
         "operationId": "example.createGreeting",
-        "requestBody": Object {
-          "content": Object {
-            "application/json": Object {
-              "schema": Object {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
                 "additionalProperties": false,
                 "description": "Input for createGreeting",
-                "properties": Object {
-                  "name": Object {
+                "properties": {
+                  "name": {
                     "description": "The name to greet",
                     "type": "string",
                   },
@@ -158,28 +158,28 @@ Object {
             },
           },
         },
-        "responses": Object {
-          "200": Object {
-            "content": Object {
-              "application/json": Object {
-                "schema": Object {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
                   "additionalProperties": false,
-                  "properties": Object {
-                    "result": Object {
+                  "properties": {
+                    "result": {
                       "additionalProperties": false,
-                      "properties": Object {
-                        "data": Object {
+                      "properties": {
+                        "data": {
                           "description": "The greeting text",
                           "type": "string",
                         },
                       },
-                      "required": Array [
+                      "required": [
                         "data",
                       ],
                       "type": "object",
                     },
                   },
-                  "required": Array [
+                  "required": [
                     "result",
                   ],
                   "type": "object",
@@ -190,21 +190,21 @@ Object {
           },
         },
         "summary": "Creates a greeting",
-        "tags": Array [
+        "tags": [
           "example",
         ],
       },
     },
-    "/trpc/example.getAll": Object {
-      "get": Object {
+    "/trpc/example.getAll": {
+      "get": {
         "operationId": "example.getAll",
-        "parameters": Array [
-          Object {
-            "content": Object {
-              "application/json": Object {
-                "schema": Object {
+        "parameters": [
+          {
+            "content": {
+              "application/json": {
+                "schema": {
                   "additionalProperties": false,
-                  "properties": Object {},
+                  "properties": {},
                   "type": "object",
                 },
               },
@@ -213,25 +213,25 @@ Object {
             "name": "input",
           },
         ],
-        "responses": Object {
-          "200": Object {
-            "content": Object {
-              "application/json": Object {
-                "schema": Object {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
                   "additionalProperties": false,
-                  "properties": Object {
-                    "result": Object {
+                  "properties": {
+                    "result": {
                       "additionalProperties": false,
-                      "properties": Object {
-                        "data": Object {
-                          "items": Object {
+                      "properties": {
+                        "data": {
+                          "items": {
                             "additionalProperties": false,
-                            "properties": Object {
-                              "id": Object {
+                            "properties": {
+                              "id": {
                                 "type": "string",
                               },
                             },
-                            "required": Array [
+                            "required": [
                               "id",
                             ],
                             "type": "object",
@@ -239,13 +239,13 @@ Object {
                           "type": "array",
                         },
                       },
-                      "required": Array [
+                      "required": [
                         "data",
                       ],
                       "type": "object",
                     },
                   },
-                  "required": Array [
+                  "required": [
                     "result",
                   ],
                   "type": "object",
@@ -255,26 +255,26 @@ Object {
             "description": "",
           },
         },
-        "tags": Array [
+        "tags": [
           "example",
         ],
       },
     },
-    "/trpc/example.hello": Object {
-      "get": Object {
+    "/trpc/example.hello": {
+      "get": {
         "operationId": "example.hello",
-        "parameters": Array [
-          Object {
-            "content": Object {
-              "application/json": Object {
-                "schema": Object {
+        "parameters": [
+          {
+            "content": {
+              "application/json": {
+                "schema": {
                   "additionalProperties": false,
-                  "properties": Object {
-                    "text": Object {
+                  "properties": {
+                    "text": {
                       "type": "string",
                     },
                   },
-                  "required": Array [
+                  "required": [
                     "text",
                   ],
                   "type": "object",
@@ -285,12 +285,12 @@ Object {
             "name": "input",
           },
         ],
-        "responses": Object {
-          "200": Object {
+        "responses": {
+          "200": {
             "description": "",
           },
         },
-        "tags": Array [
+        "tags": [
           "example",
         ],
       },
@@ -300,29 +300,29 @@ Object {
 `;
 
 exports[`works with array 1`] = `
-Object {
-  "info": Object {
+{
+  "info": {
     "title": "tRPC HTTP-RPC",
     "version": "",
   },
   "openapi": "3.0.0",
-  "paths": Object {
-    "/trpc/dummy.hello.world": Object {
-      "get": Object {
+  "paths": {
+    "/trpc/dummy.hello.world": {
+      "get": {
         "description": "ok",
         "operationId": "dummy.hello.world",
-        "parameters": Array [
-          Object {
-            "content": Object {
-              "application/json": Object {
-                "schema": Object {
+        "parameters": [
+          {
+            "content": {
+              "application/json": {
+                "schema": {
                   "additionalProperties": false,
-                  "properties": Object {
-                    "name": Object {
+                  "properties": {
+                    "name": {
                       "type": "string",
                     },
                   },
-                  "required": Array [
+                  "required": [
                     "name",
                   ],
                   "type": "object",
@@ -333,27 +333,27 @@ Object {
             "name": "input",
           },
         ],
-        "responses": Object {
-          "200": Object {
-            "content": Object {
-              "application/json": Object {
-                "schema": Object {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
                   "additionalProperties": false,
-                  "properties": Object {
-                    "result": Object {
+                  "properties": {
+                    "result": {
                       "additionalProperties": false,
-                      "properties": Object {
-                        "data": Object {
+                      "properties": {
+                        "data": {
                           "type": "string",
                         },
                       },
-                      "required": Array [
+                      "required": [
                         "data",
                       ],
                       "type": "object",
                     },
                   },
-                  "required": Array [
+                  "required": [
                     "result",
                   ],
                   "type": "object",
@@ -363,20 +363,20 @@ Object {
             "description": "",
           },
         },
-        "tags": Array [
+        "tags": [
           "dummy",
         ],
       },
     },
-    "/trpc/exampleWithArrayAsInput.queryWithArrayInput": Object {
-      "get": Object {
+    "/trpc/exampleWithArrayAsInput.queryWithArrayInput": {
+      "get": {
         "operationId": "exampleWithArrayAsInput.queryWithArrayInput",
-        "parameters": Array [
-          Object {
-            "content": Object {
-              "application/json": Object {
-                "schema": Object {
-                  "items": Object {
+        "parameters": [
+          {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
                     "type": "string",
                   },
                   "type": "array",
@@ -387,12 +387,12 @@ Object {
             "name": "input",
           },
         ],
-        "responses": Object {
-          "200": Object {
+        "responses": {
+          "200": {
             "description": "",
           },
         },
-        "tags": Array [
+        "tags": [
           "exampleWithArrayAsInput",
         ],
       },
@@ -402,29 +402,29 @@ Object {
 `;
 
 exports[`works with optional zod object 1`] = `
-Object {
-  "info": Object {
+{
+  "info": {
     "title": "tRPC HTTP-RPC",
     "version": "",
   },
   "openapi": "3.0.0",
-  "paths": Object {
-    "/trpc/dummy.hello.world": Object {
-      "get": Object {
+  "paths": {
+    "/trpc/dummy.hello.world": {
+      "get": {
         "description": "ok",
         "operationId": "dummy.hello.world",
-        "parameters": Array [
-          Object {
-            "content": Object {
-              "application/json": Object {
-                "schema": Object {
+        "parameters": [
+          {
+            "content": {
+              "application/json": {
+                "schema": {
                   "additionalProperties": false,
-                  "properties": Object {
-                    "name": Object {
+                  "properties": {
+                    "name": {
                       "type": "string",
                     },
                   },
-                  "required": Array [
+                  "required": [
                     "name",
                   ],
                   "type": "object",
@@ -435,27 +435,27 @@ Object {
             "name": "input",
           },
         ],
-        "responses": Object {
-          "200": Object {
-            "content": Object {
-              "application/json": Object {
-                "schema": Object {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
                   "additionalProperties": false,
-                  "properties": Object {
-                    "result": Object {
+                  "properties": {
+                    "result": {
                       "additionalProperties": false,
-                      "properties": Object {
-                        "data": Object {
+                      "properties": {
+                        "data": {
                           "type": "string",
                         },
                       },
-                      "required": Array [
+                      "required": [
                         "data",
                       ],
                       "type": "object",
                     },
                   },
-                  "required": Array [
+                  "required": [
                     "result",
                   ],
                   "type": "object",
@@ -465,36 +465,29 @@ Object {
             "description": "",
           },
         },
-        "tags": Array [
+        "tags": [
           "dummy",
         ],
       },
     },
-    "/trpc/example.optionalObjectTest": Object {
-      "get": Object {
+    "/trpc/example.optionalObjectTest": {
+      "get": {
         "operationId": "example.optionalObjectTest",
-        "parameters": Array [
-          Object {
-            "content": Object {
-              "application/json": Object {
-                "schema": Object {
-                  "anyOf": Array [
-                    Object {
-                      "not": Object {},
+        "parameters": [
+          {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "anOption": {
+                      "type": "string",
                     },
-                    Object {
-                      "additionalProperties": false,
-                      "properties": Object {
-                        "anOption": Object {
-                          "type": "string",
-                        },
-                      },
-                      "required": Array [
-                        "anOption",
-                      ],
-                      "type": "object",
-                    },
+                  },
+                  "required": [
+                    "anOption",
                   ],
+                  "type": "object",
                 },
               },
             },
@@ -502,12 +495,12 @@ Object {
             "name": "input",
           },
         ],
-        "responses": Object {
-          "200": Object {
+        "responses": {
+          "200": {
             "description": "",
           },
         },
-        "tags": Array [
+        "tags": [
           "example",
         ],
       },

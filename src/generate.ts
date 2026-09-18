@@ -1,13 +1,5 @@
-import { zodToJsonSchema } from 'zod-to-json-schema'
 import { DummyProcedure, DummyRouter } from './dummyRouter'
-import {
-  z,
-  AnyZodObject,
-  ZodType,
-  ZodFirstPartyTypeKind,
-  ZodArray,
-  ZodTypeAny,
-} from 'zod'
+import { z, ZodObject, ZodType, ZodArray } from 'zod'
 import { OpenAPIV3 } from 'openapi-types'
 import { OperationMeta, allowedOperationKeys } from './meta'
 import { RootConfig, Router, RouterDef } from '@trpc/server'
@@ -34,11 +26,11 @@ export function generateOpenAPIDocumentFromTRPCRouter<R extends Router<any>>(
     // ZodArrays are also correct, as .splice(1) will return an empty array
     // it's ok just to return the array itself
     const input =
-      getZodTypeName(procDef.inputs[0]) === ZodFirstPartyTypeKind.ZodArray
-        ? (procDef.inputs[0] as ZodArray<ZodTypeAny>)
+      getZodTypeName(procDef.inputs[0]) === 'array'
+        ? (procDef.inputs[0] as ZodArray)
         : procDef.inputs
             .slice(1)
-            .reduce<AnyZodObject>(
+            .reduce<ZodObject>(
               (acc, cur) => asZodObject(acc).merge(asZodObject(cur)),
               asZodObject(procDef.inputs[0] || z.object({})),
             )
@@ -135,18 +127,18 @@ export function generateOpenAPIDocumentFromTRPCRouter<R extends Router<any>>(
 }
 
 function getZodTypeName(input: unknown) {
-  return (input as { _def?: { typeName?: string } } | undefined)?._def?.typeName
+  return (input as { _def?: { type?: string } } | undefined)?._def?.type
 }
 
 function asZodObject(input: unknown) {
   if (
-    getZodTypeName(input) !== ZodFirstPartyTypeKind.ZodObject &&
-    getZodTypeName(input) !== ZodFirstPartyTypeKind.ZodVoid &&
-    getZodTypeName(input) !== ZodFirstPartyTypeKind.ZodOptional
+    getZodTypeName(input) !== 'object' &&
+    getZodTypeName(input) !== 'void' &&
+    getZodTypeName(input) !== 'optional'
   ) {
     throw new Error('Expected a ZodObject, received: ' + String(input))
   }
-  return input as AnyZodObject
+  return input as ZodObject
 }
 
 function asZodType(input: unknown) {
@@ -168,7 +160,7 @@ export interface GenerateOpenAPIDocumentOptions<M extends OperationMeta> {
 }
 
 function toJsonSchema(input: ZodType) {
-  const { $schema, ...output } = zodToJsonSchema(input)
+  const { $schema, ...output } = z.toJSONSchema(input)
   return output
 }
 

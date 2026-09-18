@@ -1,6 +1,6 @@
 {
-  "name": "openapi-trpc",
-  "version": "0.2.1",
+  "name": "@disruptops/openapi-trpc",
+  "version": "0.3.0",
   "files": [
     "src",
     "lib",
@@ -13,18 +13,14 @@
   "docModel": "./dist/openapi-trpc.api.json",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dtinth/openapi-trpc.git"
-  },
-  "homepage": "https://github.com/dtinth/openapi-trpc#readme",
-  "bugs": {
-    "url": "https://github.com/dtinth/openapi-trpc/issues"
+    "url": "git+https://github.com/disruptops/openapi-trpc.git"
   },
   "devDependencies": {
     "@changesets/cli": "2.25.0",
     "@fastify/static": "^6.9.0",
     "@microsoft/api-extractor": "^7.52.11",
     "@playwright/test": "^1.30.0",
-    "@trpc/server": "^10.11.1",
+    "@trpc/server": "^11.19.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^18.13.0",
     "fastify": "^4.13.0",
@@ -38,7 +34,7 @@
     "zod": "^4.6.5"
   },
   "peerDependencies": {
-    "@trpc/server": "^10.11.1",
+    "@trpc/server": "^11.19.0",
     "zod": "^4.6.5"
   },
   "scripts": {
@@ -48,8 +44,6 @@
     "api-extractor": "api-extractor run --local",
     "build": "npm-run-all clean compile:esm compile:cjs api-extractor",
     "test": "jest",
-    "prepare": "pnpm run build && ./scripts/generate-api-docs",
-    "release": "./scripts/release",
     "format": "prettier --write .",
     "api": "./scripts/generate-api-docs"
   },
